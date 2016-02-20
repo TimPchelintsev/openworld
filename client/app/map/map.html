@@ -1,6 +1,7 @@
 <div id="map-canvas">
   <ui-gmap-google-map center="map.map.center" zoom="map.map.zoom" control="map.map.control" options="map.map.options">
-    <ui-gmap-markers models="map.map.markers" coords="'location'"></ui-gmap-markers>
+    <ui-gmap-markers models="map.map.markers" coords="'location'" icon="'icon'"></ui-gmap-markers>
+    <!-- <ui-gmap-marker coords="map.userLocation.location" options="map.userLocation.options" idkey="'id'" ng-if="map.userLocation"></ui-gmap-marker> -->
   </ui-gmap-google-map>
 </div>
 <div class="container-fluid" id="main">

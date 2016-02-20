@@ -28,6 +28,11 @@ class MapController {
     uiGmapIsReady.promise(1).then(function(instances) {
       var _map = instances[0].map;
       // _map.fitBounds(self.map.getWorldBounds());
+      map.getUserGeolocationMarker().then(function(marker) {
+        self.userLocation = marker;
+        self.map.markers.push(marker);
+        console.log(self.userLocation);
+      });
     });
   }
 

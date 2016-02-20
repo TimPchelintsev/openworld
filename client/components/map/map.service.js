@@ -26,14 +26,13 @@ function MapService($q, uiGmapGoogleMapApi) {
     },
 
     getHomes() {
-      console.log('hi')
       var deferred = $q.defer();
       var markers = [
         {
-          id: 1,
+          id: 2,
           country: 'Russian Federation',
           city: 'Moscow',
-          location: { 'type': 'Point', 'coordinates': [55.45, 37.35] }
+          location: { 'type': 'Point', 'coordinates': [37.35, 55.45] }
         }
       ];
       deferred.resolve(markers);
@@ -48,6 +47,31 @@ function MapService($q, uiGmapGoogleMapApi) {
       deferred.resolve(Map);
     });
     return deferred.promise;
+  };
+
+  Map.getCurrentGeolocation = function() {
+    var deferred = $q.defer();
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {deferred.resolve(position);},
+          function(error) {deferred.reject(error);}
+        );
+    } else {
+        deferred.reject('Geolocation is not supported by this browser.');
+    }
+    return deferred.promise;
+  };
+
+  Map.getUserGeolocationMarker = function() {
+    return Map.getCurrentGeolocation().then(function(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      return {
+        'location': {'type': 'Point', 'coordinates': [lon, lat]},
+        'id': 1,
+        'icon': 'http://maps.google.com/mapfiles/ms/micons/man.png'
+      };
+    });
   };
 
 
