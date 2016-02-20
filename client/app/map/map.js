@@ -7,6 +7,11 @@ angular.module('openworldApp')
         url: '/map',
         templateUrl: 'app/map/map.html',
         controller: 'MapController',
-        controllerAs: 'map'
+        controllerAs: 'map',
+        resolve: {
+            map: function(Map) {
+                return Map.init();
+            }
+        }
       });
   });

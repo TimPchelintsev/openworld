@@ -1,27 +1,74 @@
-.thing-form {
-  margin: 20px 0;
+.angular-google-map,
+.angular-google-map-container {
+  width: 100%;
+  height: 100%;
 }
 
-#banner {
-  border-bottom: none;
-  margin-top: -20px;
+/*
+A custom Bootstrap 3.1 theme from http://bootply.com\
+
+This CSS code should follow the 'bootstrap.css'
+in your HTML file.
+
+license: MIT
+author: bootply.com
+*/
+
+
+html,body{
+    height:100%;
 }
 
-#banner h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+body{
+    padding-top:50px; /*padding for navbar*/
+    overflow-y:hidden;
 }
 
-.hero-unit {
-  position: relative;
-  padding: 30px 15px;
-  color: #F5F5F5;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  background: #4393B9;
+.navbar-custom .icon-bar {
+  background-color:#fff;
 }
 
-.navbar-text {
-  margin-left: 15px;
+.navbar-custom {
+  background-color: #168ccc;
+    color:#fff;
+}
+
+.navbar-custom li>a:hover,.navbar-custom li>a:focus {
+  background-color:#49bfff;
+}
+
+.navbar-custom a{
+    color:#fefefe;
+}
+
+.navbar-custom .form-control:focus {
+  border-color: #49bfff;
+  outline: 0;
+  -webkit-box-shadow: inset 0 0 0;
+  box-shadow: inset 0 0 0;
+}
+
+#main, #main>.row {
+  height:100%;
+}
+
+#left {
+  height:700px;
+  width:33.33%;
+}
+
+.scroller {
+  max-height: 100%;
+  overflow-y: hidden;
+}
+
+#map-canvas {
+  width:66.66%;
+  height:calc(100% - 0);
+  position:absolute;
+  right:0px;
+  top:50px;
+  bottom:0;
+  overflow:hidden;
+  overflow-y:hidden;
 }

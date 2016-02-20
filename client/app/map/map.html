@@ -1,7 +1,30 @@
-<div class="container">
+<div id="map-canvas">
+  <ui-gmap-google-map center="map.map.center" zoom="map.map.zoom" control="map.map.control" options="map.map.options">
+    <ui-gmap-markers models="map.map.markers" coords="'location'"></ui-gmap-markers>
+  </ui-gmap-google-map>
+</div>
+<div class="container-fluid" id="main">
   <div class="row">
-    <div class="col-lg-12">
-      Hello
+    <div class="col-xs-8" id="left">
+
+      <h2>Bootstrap Google Maps Demo</h2>
+
+      <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20" refresh-on-change="map.items">
+
+      <!-- item list -->
+      <ul class="list-unstyled">
+        <li ng-repeat="item in map.items">
+          <div class="panel panel-default">
+            <div class="panel-heading"><a ng-href="{{iterm.detail_url}}">{{item.heading}}</a></div>
+          </div>
+          <p>
+            {{item.description}}
+          </p>
+        </li>
+      </ul>
+      <!-- /item list -->
+      </perfect-scrollbar>
     </div>
+    <div class="col-xs-4"><!--map-canvas will be postioned here--></div>
   </div>
 </div>
