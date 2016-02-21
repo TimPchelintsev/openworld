@@ -74,6 +74,30 @@ function MapService($q, uiGmapGoogleMapApi) {
     });
   };
 
+  Map.autocomplete = function(val) {
+    var deferred = $q.defer();
+    var service = new _gmaps.places.AutocompleteService();
+
+    var request = {
+        input: val,
+        // componentRestrictions: {country: 'ua'},
+        // types: ['geocode', 'establishment']
+        types: ['(cities)']
+    };
+    service.getPlacePredictions(request,
+      function(predictions, status) {
+          if (_.isEmpty(predictions)) {
+              deferred.resolve([]);
+          } else {
+              deferred.resolve(predictions.map(function(prediction) {
+                  console.log(prediction);
+                  return prediction;
+              }));
+          }
+
+    });
+    return deferred.promise;
+  };
 
 
   return Map;

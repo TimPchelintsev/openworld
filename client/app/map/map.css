@@ -71,4 +71,17 @@ body{
   bottom:0;
   overflow:hidden;
   overflow-y:hidden;
+  z-index: 0;
+}
+
+#menu {
+  position: relative;
+  z-index: 100; /* The z-index should be higher than Google Maps */
+  width: 300px;
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+  background: black;
+  height: auto;
+  opacity: .85; /* Set the opacity for a slightly transparent Google Form */
+  color: white;
 }

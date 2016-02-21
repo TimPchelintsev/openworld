@@ -12,7 +12,8 @@ angular.module('openworldApp', [
   'ui.bootstrap',
   'validation.match',
   'uiGmapgoogle-maps',
-  'perfect_scrollbar'
+  'perfect_scrollbar',
+  'ngDragDrop'
 ])
   .config(function($urlRouterProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
     $urlRouterProvider
@@ -23,6 +24,6 @@ angular.module('openworldApp', [
     uiGmapGoogleMapApiProvider.configure({
         //    key: 'your api key',
         v: '3.20', //defaults to latest 3.X anyhow
-        libraries: 'weather,geometry,visualization'
+        libraries: 'weather,geometry,visualization,places'
     });
   });

@@ -7,6 +7,9 @@ class MapController {
   constructor($scope, $http, map, uiGmapIsReady) {
     var self = this;
     this.$http = $http;
+    this.draggableOptions = {
+      cursor: 'move'
+    };
     var generateItem =  function(_id) {
       return {
       id: _id,

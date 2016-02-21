@@ -23,6 +23,10 @@ module.exports = function(config) {
       'client/bower_components/angular-validation-match/dist/angular-validation-match.min.js',
       'client/bower_components/angular-simple-logger/dist/angular-simple-logger.js',
       'client/bower_components/angular-google-maps/dist/angular-google-maps.js',
+      'client/bower_components/perfect-scrollbar/src/perfect-scrollbar.js',
+      'client/bower_components/angular-perfect-scrollbar/src/angular-perfect-scrollbar.js',
+      'client/bower_components/jquery-ui/jquery-ui.js',
+      'client/bower_components/angular-dragdrop/src/angular-dragdrop.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'client/app/app.js',
