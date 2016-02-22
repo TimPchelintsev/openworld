@@ -19,6 +19,8 @@ function MapService($q, uiGmapGoogleMapApi) {
       scrollwheel: true
     },
 
+    _map: null,
+
     markers: [],
 
     getGmaps() {
@@ -29,10 +31,30 @@ function MapService($q, uiGmapGoogleMapApi) {
       var deferred = $q.defer();
       var markers = [
         {
-          id: 2,
+          id: 1,
           country: 'Russian Federation',
           city: 'Moscow',
-          location: { 'type': 'Point', 'coordinates': [37.35, 55.45] }
+          location: { 'type': 'Point', 'coordinates': [37.35, 55.45] },
+          photoUrl: 'http://edugeography.com/images/moscow/moscow-06.jpg',
+          latitude: 37.35,
+          longitude: 55.45
+        },
+        {
+          id: 2,
+          country:'Thailand',
+          city: 'Bangkok',
+          location: { 'type': 'Point', 'coordinates': [100.47, 13.75] },
+          photoUrl: 'http://www.flight-durations.com/template/img/cities/bangkok.jpg',
+          latitude: 13.75,
+          longitude: 100.47
+        },
+        {
+          id: 3,
+          country: 'China',
+          city: 'Pekin',
+          photoUrl: 'http://www.aviator.net.ua/images/statii/goroda/Pekin3.jpg',
+          latitude: 39.93,
+          longitude: 116.4
         }
       ];
       deferred.resolve(markers);
@@ -68,7 +90,7 @@ function MapService($q, uiGmapGoogleMapApi) {
       var lon = position.coords.longitude;
       return {
         'location': {'type': 'Point', 'coordinates': [lon, lat]},
-        'id': 1,
+        'id': 0,
         'icon': 'http://maps.google.com/mapfiles/ms/micons/man.png'
       };
     });
@@ -81,8 +103,8 @@ function MapService($q, uiGmapGoogleMapApi) {
     var request = {
         input: val,
         // componentRestrictions: {country: 'ua'},
-        // types: ['geocode', 'establishment']
-        types: ['(cities)']
+        types: ['geocode', 'establishment']
+        // types: ['(cities)']
     };
     service.getPlacePredictions(request,
       function(predictions, status) {
@@ -90,11 +112,21 @@ function MapService($q, uiGmapGoogleMapApi) {
               deferred.resolve([]);
           } else {
               deferred.resolve(predictions.map(function(prediction) {
-                  console.log(prediction);
                   return prediction;
               }));
           }
 
+    });
+    return deferred.promise;
+  };
+
+  Map.getDetails = function(_placeId) {
+    var deferred = $q.defer();
+    console.log('Ololo');
+    var service = new _gmaps.places.PlacesService(Map._map);
+    console.log(_placeId);
+    service.getDetails({'placeId': _placeId}, function(place, status) {
+      deferred.resolve(place);
     });
     return deferred.promise;
   };

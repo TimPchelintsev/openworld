@@ -1,26 +1,29 @@
+<div id="page-wrapper">
 <div id="map-canvas">
   <ui-gmap-google-map center="map.map.center" zoom="map.map.zoom" control="map.map.control" options="map.map.options">
-    <ui-gmap-markers models="map.map.markers" coords="'location'" icon="'icon'"></ui-gmap-markers>
+    <ui-gmap-markers models="map.map.markers" coords="'self'" icon="'icon'"></ui-gmap-markers>
     <!-- <ui-gmap-marker coords="map.userLocation.location" options="map.userLocation.options" idkey="'id'" ng-if="map.userLocation"></ui-gmap-marker> -->
+    <ui-gmap-polyline path="map.map.markers" icons="map.lineIcons" stroke="map.lineStroke" geodesic="true"></ui-gmap-polyline>
   </ui-gmap-google-map>
 </div>
 <div class="container-fluid" id="main">
   <div class="row">
     <div class="col-xs-8" id="left">
 
-      <h2>Bootstrap Google Maps Demo</h2>
+      <h2><small>Plan your RTW trip</small></h2>
 
-      <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20" refresh-on-change="map.items">
+      <perfect-scrollbar class="scroller" wheel-propagation="true" wheel-speed="10" min-scrollbar-length="20" refresh-on-change="map.map.markers">
 
       <!-- item list -->
       <ul class="list-unstyled">
-        <li ng-repeat="item in map.items">
+        <li ng-repeat="item in map.map.markers">
           <div class="panel panel-default">
-            <div class="panel-heading"><a ng-href="{{iterm.detail_url}}">{{item.heading}}</a></div>
+            <div class="panel-heading"><a ng-href="{{iterm.detail_url}}">{{item.city}}</a></div>
+            <img ng-src="{{item.photoUrl}}" alt="" class="img-responsive">
           </div>
-          <p>
-            {{item.description}}
-          </p>
+          <div class="well">
+            Jim, Tim and 42 others are there now
+          </div>
         </li>
       </ul>
       <!-- /item list -->
@@ -35,8 +38,7 @@
    <form role="form">
     <div class="form-group">
       <label for="start-city">City you are now:</label>
-      <pre>Model: {{map.asyncSelected | json}}</pre>
-      <input type="text" ng-model="map.asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address as address.description for address in map.map.autocomplete($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control" id="start-city">
+      <input type="text" ng-model="map.asyncSelected" placeholder="Locations loaded via $http" uib-typeahead="address as address.description for address in map.map.autocomplete($viewValue)" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control" id="start-city" typeahead-on-select="map.onSelect($item)">
       <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
       <div ng-show="noResults">
         <i class="glyphicon glyphicon-remove"></i> No Results Found
@@ -51,4 +53,5 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
+</div>
 </div>

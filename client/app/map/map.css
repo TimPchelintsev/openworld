@@ -21,7 +21,11 @@ html,body{
 
 body{
     padding-top:50px; /*padding for navbar*/
-    overflow-y:hidden;
+    /*overflow-y:hidden;*/
+}
+.no-scroll {
+  overflow-y:hidden;
+  height:100%;
 }
 
 .navbar-custom .icon-bar {

@@ -4,18 +4,15 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-.start-button {
-  border-color: #ff5a5f;
-  border-bottom-color: #e00007;
-  background-color: #ff5a5f;
-  color: #fff
+body {
+    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
 .header-image {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('http://app.am/download.php?id=3438') no-repeat center center scroll;
+    background: url('http://placehold.it/1900x500') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -58,6 +55,9 @@
     font-size: 50px;
 }
 
+footer {
+    margin: 50px 0;
+}
 
 @media(max-width:1200px) {
     .headline h1 {

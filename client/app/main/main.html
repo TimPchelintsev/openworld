@@ -1,18 +1,52 @@
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
+<!-- Full Width Image Header -->
+<header class="header-image">
+    <div class="headline">
+        <div class="container">
+            <h1>Explore The World</h1>
+            <h2><small>with</small>Travelers Social Network</h2>
+            <br>
+            <br>
+            <a ui-sref="map" class="btn btn-primary btn-lg start-button" style="background-color:#ff5a5f">START MY JOURNEY</a>
+        </div>
+    </div>
 </header>
 
+<!-- Page Content -->
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in main.awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
-    </div>
+
+  <hr class="featurette-divider">
+
+  <!-- First Featurette -->
+  <div class="featurette" id="about">
+      <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+      <h2 class="featurette-heading">Social Network
+          <span class="text-muted">For Travelers</span>
+      </h2>
+      <p class="lead">Being a novice, expert traveler or digital nomad? Benefit from joining strong community sharing open world philosophy.</p>
   </div>
+
+  <hr class="featurette-divider">
+
+  <!-- Second Featurette -->
+  <div class="featurette" id="services">
+      <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
+      <h2 class="featurette-heading">Find New Friends
+          <span class="text-muted">On The Road.</span>
+      </h2>
+      <p class="lead">Follow travelers, discover their Next Big Travel plans</p>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- Third Featurette -->
+  <div class="featurette" id="contact">
+      <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
+      <h2 class="featurette-heading">Get Highly Personalized
+          <span class="text-muted">Travel Assistance</span>
+      </h2>
+      <p class="lead">From insuarance & visa to financial help and travelers consulting 24/7. If you find yourself in trouble,
+      get instant help from local members</p>
+  </div>
+
+  <hr class="featurette-divider">
 </div>
